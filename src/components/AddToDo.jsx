@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import TodoList from "./TodoList";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { todoState } from "../assets/store/atoms/todosAtom";
+import "./AddToDo.css"
 
 const AddToDo = () => {
   const [todo, setTodo] = useState({
@@ -11,7 +12,7 @@ const AddToDo = () => {
     description: "",
     done: false,
   });
-  
+
   const [todos, setTodos] = useRecoilState(todoState);
 
   useEffect(() => {
@@ -33,8 +34,9 @@ const AddToDo = () => {
     });
   }
   return (
-    <>
-      <form action="submit">
+    <div id="container">
+
+      <form id="todo-form" action="submit">
         <input
           type="text"
           name="title"
@@ -53,7 +55,7 @@ const AddToDo = () => {
       </form>
 
       <TodoList />
-    </>
+    </div>
   );
 };
 
